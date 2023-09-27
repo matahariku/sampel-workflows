@@ -30,6 +30,7 @@ jobs:
                 ls -a
       
 
+<<<<<<< HEAD
 
           - name: Simple Javascript Action
             id: hello
@@ -39,3 +40,7 @@ jobs:
 
           - name: Get the output time
             run: echo "${{ steps.hello.outputs.time }}"
+=======
+      - name: Get the output time
+        run: echo "${{ steps.hello.outputs.time }}"
+>>>>>>> 5a7d2264375986b73fed7b7b864d9cdcd9665081
