@@ -4,7 +4,7 @@ on:
   schedule: 
     - cron: "1 * * * *"
   
-    pull-request:
+  pull-request:
     type: [closed, assigned, opened, reopened]
 
 jobs:
