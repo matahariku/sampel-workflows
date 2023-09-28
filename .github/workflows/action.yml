@@ -4,8 +4,8 @@ on:
   schedule: 
     - cron: "1 * * * *"
   
-  pull-request:
-    type: [closed, assigned, opened, reopened]
+  pull_request:
+    types: [closed, assigned, opened, reopened]
 
 jobs:
   run-github-actions:
@@ -18,16 +18,11 @@ jobs:
           echo $GITHUB_SHA
           echo $GITHUB_REPOSITORY
           echo $GITHUB_WORKSPACE
-          echo "${{ github.token }}"
 
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: List Files After Checkout
         run: |
           pwd
           ls -a
-
-
-    
-    
