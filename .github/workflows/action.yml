@@ -1,29 +1,19 @@
 name: Action Workflow
 
-on: 
-  schedule: 
-    - cron: "1 * * * *"
-  
-  pull_request:
-    types: [closed, assigned, opened, reopened]
+on: [push]
+    
+    run-github-actions:
+        runs-on: ubuntu-latest
+        steps:
+          - name: List Filles
+            run:
+              pwd
+              ls
+          - name: Simple Javascript Action
+            id: hello
+            uses: actions/hello-world-javascript-action@v1
+            with: 
+                who-to-greet: devopshint
 
-jobs:
-  run-github-actions:
-    runs-on: ubuntu-latest
-    steps:
-      - name: List Files
-        run: |
-          pwd
-          ls -a
-          echo $GITHUB_SHA
-          echo $GITHUB_REPOSITORY
-          echo $GITHUB_WORKSPACE
-          echo "${{ github.token }}"
-
-      - name: Checkout
-        uses: actions/checkout@v1
-
-      - name: List Files After Checkout
-        run: |
-          pwd
-          ls -a
+          - name: Get the output time
+            run: echo "${{ steps.hello.outputs.time }}"
