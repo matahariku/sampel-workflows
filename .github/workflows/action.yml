@@ -6,10 +6,30 @@ jobs:
     run-github-actions:
         runs-on: ubuntu-latest
         steps:
+<<<<<<< HEAD
           - name: List files
             run:
               pwd
               ls
+=======
+          - name: List Files
+            run: |
+                pwd
+                ls -a
+                echo $GITHUB_SHA
+                echo $GITHUB_REPOSITORY
+                echo $GITHUB_WORKSPACE
+                echo "${{ github.token }}"
+      
+          - name: Checkout
+            uses: actions/checkout@v1
+      
+          - name: List Files After Checkout
+            run: |
+                pwd
+                ls -a
+
+>>>>>>> 457322c7dc4950f834729d6ece115b02f53ee236
           - name: Simple Javascript Action
             id: hello
             uses: actions/helo-world-javascript-action@v1
@@ -18,5 +38,11 @@ jobs:
       
           - name: Get the output time
             run: echo "${{ steps.hello.outputs.time }}"
+<<<<<<< HEAD
                 
       
+=======
+
+    
+
+>>>>>>> 457322c7dc4950f834729d6ece115b02f53ee236
